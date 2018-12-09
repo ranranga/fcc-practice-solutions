@@ -206,3 +206,158 @@ function sliceArray(anim, beginSlice, endSlice) {
   var first = [1, 2, 3];
   var second = [4, 5];
   console.log(nonMutatingPush(first, second));
+
+  // Use reduce method to analyze data
+  // Expected output - The averageRating should equal 8.675.
+// Add your code below this line
+ //watchList.map( (item) => ({"title":item["Title"], "rating":item["imdbRating"]}) );
+ let customObject = watchList.map((obj) => ({director: obj.Director, rating: obj.imdbRating}));
+ 
+ let filteredCustomObject = customObject.filter(item => item.director === "Christopher Nolan").map(item => parseFloat(item.rating));
+ 
+ let averageRating = filteredCustomObject.reduce((acc, cur) => acc+cur)/filteredCustomObject.length;
+ // Add your code above this line
+ 
+ console.log(averageRating); 
+
+ // Sort an array alphabetically using sort method
+ // Expected output: alphabeticalOrder(["a", "d", "c", "a", "z", "g"]) should return ["a", "a", "c", "d", "g", "z"].
+ function alphabeticalOrder(arr) {
+  // Add your code below this line
+  return arr.sort();
+  // Add your code above this line
+}
+console.log(
+  alphabeticalOrder(["a", "d", "c", "a", "z", "g"])
+);
+
+//  Return a Sorted Array Without Changing the Original Array
+// Expected output: nonMutatingSort(globalArray) should return [2, 3, 5, 6, 9]
+
+var globalArray = [5, 6, 3, 2, 9];
+function nonMutatingSort(arr) {
+  // Add your code below this line
+  let newArray = [];
+  return newArray.concat(arr).sort();
+
+  
+  // Add your code above this line
+}
+console.log(nonMutatingSort(globalArray));
+
+// Split a String into an Array Using the split Method
+/**
+ *  splitify("Hello World,I-am code") should return ["Hello", "World", "I", "am", "code"].
+ *  splitify("Earth-is-our home") should return ["Earth", "is", "our", "home"].
+ *  splitify("This.is.a-sentence") should return ["This", "is", "a", "sentence"].
+ */
+
+function splitify(str) {
+  // Add your code below this line
+  return str.split(/\W/);
+  // Add your code above this line
+}
+console.log(splitify("Hello World,I-am code"));
+
+// Combine an Array into a String Using the join Method
+// Expected result:  
+/**
+ * sentensify("May-the-force-be-with-you") should return "May the force be with you".
+ * sentensify("The.force.is.strong.with.this.one") should return "The force is strong with this one".
+ * sentensify("There,has,been,an,awakening") should return "There has been an awakening".
+ */
+
+function sentensify(str) {
+  // Add your code below this line
+  let arr = str.split(/\W/);
+  return arr.join(" ");
+  // Add your code above this line
+}
+console.log(sentensify("May-the-force-be-with-you"));
+
+// Apply Functional Programming to Convert Strings to URL Slugs
+// Expected result
+/**
+ * urlSlug("Winter Is Coming") should return "winter-is-coming".
+ * urlSlug(" Winter Is  Coming") should return "winter-is-coming".
+ * urlSlug("A Mind Needs Books Like A Sword Needs A Whetstone") should return 
+   "a-mind-needs-books-like-a-sword-needs-a-whetstone".
+ * urlSlug("Hold The Door") should return "hold-the-door".
+ */
+// the global variable
+// the global variable
+var globalTitle = " Winter Is  Coming";
+
+// Add your code below this line
+function urlSlug(title) {
+  let newArr = title;
+  return newArr.trim().split(/\s+/).join("-").toLowerCase();
+  console.log
+  //return newArr.join("-").toLowerCase();
+}
+// Add your code above this line
+
+var winterComing = urlSlug(globalTitle); // Should be "winter-is-coming"
+console.log(winterComing);
+
+// Use the every Method to Check that Every Element in an Array Meets a Criteria
+// Expected result:
+/**
+ * checkPositive([1, 2, 3, -4, 5]) should return false.
+ * checkPositive([1, 2, 3, 4, 5]) should return true.
+ * checkPositive([1, -2, 3, -4, 5]) should return false.
+ */
+
+function checkPositive(arr) {
+  // Add your code below this line
+  return arr.every((el) => {
+      return el > 0;
+  });
+  
+  // Add your code above this line
+}
+checkPositive([1, 2, 3, -4, 5]);
+
+// Use the some Method to Check that Any Elements in an Array Meet a Criteria
+// Expected Result:
+/**
+ * checkPositive([1, 2, 3, -4, 5]) should return true.
+ * checkPositive([1, 2, 3, 4, 5]) should return true.
+ * checkPositive([-1, -2, -3, -4, -5]) should return false.
+ */
+
+function checkPositive(arr) {
+  // Add your code below this line
+  return arr.some((el) => el > 0);
+  
+  // Add your code above this line
+}
+checkPositive([1, 2, 3, -4, 5]);
+
+// Introduction to Currying and Partial Application
+// Expected result:
+/**
+ * add(10)(20)(30) should return 60.
+ * add(1)(2)(3) should return 6.
+ * add(11)(22)(33) should return 66.
+ */
+
+function add(x) {
+  // Add your code below this line
+  return (y) => {
+    return (z) => {
+      return x + y + z;
+    }
+  }
+  
+  // Add your code above this line
+}
+add(10)(20)(30);
+
+// Impartial function
+//Impartial function
+function impartial(x, y, z) {
+  return x + y + z;
+}
+var partialFn = impartial.bind(this, 1, 2);
+partialFn(10); // Returns 13
