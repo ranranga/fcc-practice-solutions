@@ -1,0 +1,32 @@
+const JSX = (
+  <div>
+    <h1>Hello World</h1>
+    <p>Lets render this to the DOM</p>
+  </div>
+);
+// change code below this line
+<div id="challenge-node"></div>
+ReactDOM.render(JSX, document.getElementById("challenge-node"));
+
+<!--difference in naming convention-->
+
+const JSX = (
+  <div className="myDiv">
+    <h1>Add a class to this div</h1>
+  </div>
+);
+
+
+class MyComponent extends React.Component {
+    constructor(props) {
+      super(props);
+    }
+    render() {
+      // change code below this line
+      return (<div>
+        <h1>Hello React!</h1>
+      </div>);
+  
+      // change code above this line
+    }
+  };
