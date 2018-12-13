@@ -1,0 +1,119 @@
+<!--Review using props with stateless functional components-->
+
+class CampSite extends React.Component {
+    constructor(props) {
+      super(props);
+    }
+    render() {
+      return (
+        <div>
+          <Camper />
+        </div>
+      );
+    }
+  };
+  // change code below this line
+  const Camper = (props) => {
+    return (
+      <p>{props.name}</p>
+    );
+  };
+  
+  Camper.defaultProps = {
+    name: 'CamperBot'
+  };
+  
+  Camper.propTypes = {
+    name: PropTypes.string.isRequired
+  };
+
+  <!--Create a Stateful Component-->
+
+class StatefulComponent extends React.Component {
+    constructor(props) {
+        super(props);
+        // initialize state here
+        this.state = {
+            name: "Name"
+        }
+    }
+    render() {
+        return (
+            <div>
+                <h1>{this.state.name}</h1>
+            </div>
+        );
+    }
+};
+
+<!--Render state in the user interface-->
+
+class MyComponent extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            name: 'freeCodeCamp'
+        }
+    }
+    render() {
+        return (
+            <div>
+                { /* change code below this line */ }
+                <h1>{this.state.name}</h1>
+                { /* change code above this line */ }
+            </div>
+        );
+    }
+};
+
+<!--Render State in the User Interface Another Way-->
+
+class MyComponent extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            name: 'freeCodeCamp'
+        }
+    }
+    render() {
+        // change code below this line
+        const name = this.state.name;
+        // change code above this line
+        return (
+            <div>
+                { /* change code below this line */ }
+                <h1>{name}</h1>
+                { /* change code above this line */ }
+            </div>
+        );
+    }
+};
+
+<!--Set State with this.setState-->
+
+class MyComponent extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            name: 'Initial State'
+        };
+        this.handleClick = this.handleClick.bind(this);
+    }
+    
+    handleClick() {
+        // change code below this line
+        this.setState({
+            name: 'React Rocks!'
+        });
+        // change code above this line
+    }
+    
+    render() {
+        return (
+            <div>
+                <button onClick={this.handleClick}>Click Me</button>
+                <h1>{this.state.name}</h1>
+            </div>
+        );
+    }
+};
