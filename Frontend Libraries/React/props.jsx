@@ -1,4 +1,4 @@
-<!--Review using props with stateless functional components-->
+// <!--Review using props with stateless functional components-->
 
 class CampSite extends React.Component {
     constructor(props) {
@@ -27,7 +27,7 @@ class CampSite extends React.Component {
     name: PropTypes.string.isRequired
   };
 
-  <!--Create a Stateful Component-->
+  // <!--Create a Stateful Component-->
 
 class StatefulComponent extends React.Component {
     constructor(props) {
@@ -46,7 +46,7 @@ class StatefulComponent extends React.Component {
     }
 };
 
-<!--Render state in the user interface-->
+// <!--Render state in the user interface-->
 
 class MyComponent extends React.Component {
     constructor(props) {
@@ -66,7 +66,7 @@ class MyComponent extends React.Component {
     }
 };
 
-<!--Render State in the User Interface Another Way-->
+// <!--Render State in the User Interface Another Way-->
 
 class MyComponent extends React.Component {
     constructor(props) {
@@ -89,7 +89,7 @@ class MyComponent extends React.Component {
     }
 };
 
-<!--Set State with this.setState-->
+// <!--Set State with this.setState-->
 
 class MyComponent extends React.Component {
     constructor(props) {
@@ -117,3 +117,95 @@ class MyComponent extends React.Component {
         );
     }
 };
+
+// <!--Advanced props usage-->
+
+// <!--Pass State as Props to Child Components-->
+
+class MyApp extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        name: 'CamperBot'
+      }
+    }
+    render() {
+      return (
+         <div>
+           <Navbar name={this.state.name}/* your code here */ />
+         </div>
+      );
+    }
+  };
+  
+  class Navbar extends React.Component {
+    constructor(props) {
+      super(props);
+    }
+    render() {
+      return (
+      <div>
+        <h1>Hello, my name is: {this.props.name}/* your code here */ </h1>
+      </div>
+      );
+    }
+  };
+
+// <!--Pass a Callback as Props-->
+
+class MyApp extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        inputValue: ''
+      }
+      this.handleChange = this.handleChange.bind(this);
+    }
+    handleChange(event) {
+      this.setState({
+        inputValue: event.target.value
+      });
+    }
+    render() {
+      return (
+         <div>
+          { /* change code below this line */ }
+          <GetInput input={this.state.inputValue} handleChange={this.handleChange}/>
+          <RenderInput input={this.state.inputValue}/>
+          { /* change code above this line */ }
+         </div>
+      );
+    }
+  };
+  
+  class GetInput extends React.Component {
+    constructor(props) {
+      super(props);
+    }
+    render() {
+      return (
+        <div>
+          <h3>Get Input:</h3>
+          <input
+            value={this.props.input}
+            onChange={this.props.handleChange}/>
+        </div>
+      );
+    }
+  };
+  
+  class RenderInput extends React.Component {
+    constructor(props) {
+      super(props);
+    }
+    render() {
+      return (
+        <div>
+          <h3>Input Render:</h3>
+          <p>{this.props.input}</p>
+        </div>
+      );
+    }
+  };
+
+  

@@ -1,8 +1,8 @@
-<!--Simple-->
+// <!--Simple-->
 const element = <h1>Hello JSX!</h1>
 
-<!--Complex-->
-<!--JSX Element should return one component-->
+// <!--Complex-->
+// <!--JSX Element should return one component-->
 
 const JSX = <div>
                 <h1></h1>
@@ -14,7 +14,7 @@ const JSX = <div>
                 </ul>
             </div>
 
-<!--Comments in JSX-->
+// <!--Comments in JSX-->
 
 const JSX = (
     <div> Hello comment

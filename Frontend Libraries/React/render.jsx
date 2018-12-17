@@ -8,7 +8,7 @@ const JSX = (
 <div id="challenge-node"></div>
 ReactDOM.render(JSX, document.getElementById("challenge-node"));
 
-<!--difference in naming convention-->
+// <!--difference in naming convention-->
 
 const JSX = (
   <div className="myDiv">
@@ -31,7 +31,7 @@ class MyComponent extends React.Component {
     }
   };
 
-  <!--Creating component with composition-->
+  // <!--Creating component with composition-->
 
   const ChildComponent = () => {
     return (
@@ -57,7 +57,7 @@ class MyComponent extends React.Component {
     }
   };
 
-  <!--Nested Components-->
+  // <!--Nested Components-->
   const TypesOfFruit = () => {
     return (
       <div>
@@ -99,7 +99,7 @@ class MyComponent extends React.Component {
     }
   };
 
-  <!--Compose react components-->
+  // <!--Compose react components-->
 
   class Fruits extends React.Component {
     constructor(props) {
@@ -146,7 +146,7 @@ const CurrentDate = (props) => {
   );
 };
 
-<!--Pass Props to a Stateless Functional Component-->
+// <!--Pass Props to a Stateless Functional Component-->
 
 class Calendar extends React.Component {
   constructor(props) {
@@ -164,7 +164,7 @@ class Calendar extends React.Component {
   }
 };
 
-<!--Pass an array as props-->
+// <!--Pass an array as props-->
 const List= (props) => { { /* change code below this line */ } return
 <p>{props.tasks.join(', ')}</p>
 { /* change code above this line */ } }; 
@@ -181,7 +181,7 @@ class ToDo extends React.Component { constructor(props) { super(props); } render
 </div>
 ); } };
 
-<!--Use default props-->
+// <!--Use default props-->
 const ShoppingCart = (props) => {
   return (
     <div>
@@ -194,7 +194,7 @@ ShoppingCart.defaultProps = {
   items: 0
 }
 
-<!--Override default props-->
+// <!--Override default props-->
 
 const Items = (props) => { return
   <h1>Current Quantity of Items in Cart: {props.quantity}</h1>
@@ -215,7 +215,7 @@ class ShoppingCart extends React.Component {
   }
 };
 
-<!--Use PropTypes to define the prop you expect-->
+// <!--Use PropTypes to define the prop you expect-->
 
 
 // change code below this line
@@ -238,7 +238,7 @@ render() {
   }
 };
 
-<!--Access props using this.props-->
+// <!--Access props using this.props-->
 
 class ReturnTempPassword extends React.Component {
   constructor(props) {
