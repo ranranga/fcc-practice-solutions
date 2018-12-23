@@ -1,0 +1,24 @@
+body {
+  background: #E9EBEE;
+}
+
+.container {
+  margin-top: 10%;
+  width: 500px;
+}
+
+p {
+  margin: 0;
+}
+
+.btn-group {
+  text-align: center;
+}
+
+button {
+  cursor: pointer;
+}
+
+p, q, button {
+  font-family: 'Roboto', sans-serif;
+}
