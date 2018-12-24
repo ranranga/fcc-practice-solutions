@@ -1,0 +1,75 @@
+const Component = React.Component;
+const Provider = ReactRedux.Provider;
+const connect = ReactRedux.connect;
+
+const UPDATE = 'UPDATE';
+
+// Action Creator
+const updateText = (text) => { 
+  return { type: UPDATE, payload: text } 
+}
+
+// Reducer
+const initialState = 'Heading\n=======\n\nSub-heading\n-----------\n \n### Another deeper heading\n \nParagraphs are separated\nby a blank line.\n\nLeave 2 spaces at the end of a line to do a  \nline break\n\nText attributes *italic*, **bold**, \n`monospace`, ~~strikethrough~~ .\n\nShopping list:\n\n  * apples\n  * oranges\n  * pears\n\nNumbered list:\n\n  1. apples\n  2. oranges\n  3. pears\n\n\n *[Sachidanand Vaishnav](https://freecodecamp.com/scadyy)*';
+
+const textReducer = (state=initialState, action) => { 
+  switch(action.type){
+    case UPDATE: 
+      return action.payload;
+    default: 
+      return state;
+  }
+}
+
+// Presentational Component
+class Input extends Component {
+  constructor(props) {
+    super(props)
+    this.handleChange = this.handleChange.bind(this);
+  }
+  handleChange(event) {
+    this.props.updateText(event.target.value);
+    // console.log(event.target.value, this.props.text); 
+    // lol somehow this happens with this method too?
+  }
+  render() {
+    return (<div className="col-sm">
+        <textarea rows="20" className="form-control" onChange={this.handleChange} value={this.props.text}></textarea>
+        </div>)
+  }
+}
+
+class Output extends Component {
+  constructor(props) {
+    super(props);
+    this.createMarkup = this.createMarkup.bind(this);
+  }
+  createMarkup() {
+    return {
+      __html: marked(this.props.text,{sanitize:true})
+    }
+  }
+  render() {
+    return (<div className="col-sm">
+        <span dangerouslySetInnerHTML={ this.createMarkup() } />
+        </div>)
+  }
+}
+
+const mapStateToProps = (state) => { return { text: state } }
+const mapDispatchToProps = (dispatch) => Redux.bindActionCreators({updateText},dispatch)
+const InputContainer = connect(mapStateToProps,mapDispatchToProps)(Input);
+
+const OutputContainer = connect(mapStateToProps,null)(Output);
+
+const store = Redux.createStore(textReducer);
+
+ReactDOM.render(
+  <Provider store={store}>
+    <div>
+      <InputContainer />
+      <OutputContainer />
+    </div>
+  </Provider>,
+  document.getElementById('app')
+);
