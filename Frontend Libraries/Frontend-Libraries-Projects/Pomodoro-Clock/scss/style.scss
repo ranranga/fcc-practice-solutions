@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css?family=Orbitron');
+
+body {
+  background: #1a2035;
+  color: white;
+  text-align: center;
+  font-family: 'Orbitron', sans-serif;
+  #container {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    .main-title {
+      font-size: 50px;
+      margin-bottom: 20px;
+    }
+    .timer-length-controls {
+      display: flex;
+      #break-label {
+        margin-left: 20px;
+      }
+      #session-label {
+        margin-right: 20px;
+      }
+    }
+    .length-control {
+      width: 250px;
+    }
+    button {
+      background: none;
+      outline: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+    .btn-level,
+    .length-control {
+      display: inline-block;
+      .btn-level:nth-child(3) {
+        width: 40px;
+      }
+    }
+    .timer {
+      border: 7px solid #fff;
+      margin: 20px auto 10px auto;
+      width: 270px;
+      height: 160px;
+      border-radius: 50px;
+      position: relative;
+      .timer-wrapper {
+        position: absolute;
+        width: 190px;
+        height: 110px;
+        left: 50%;
+        top: 50%;
+        margin-left: -95px;
+        margin-top: -57px;
+      }
+      #time-left {
+        font-family: Orbitron;
+        font-size: 55px;
+      }
+      .timer-control button:active {
+        margin-top: 115px;
+        color: #fff;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #container {
+    transform: scale(0.8);
+    -webkit-transform: scale(0.8);
+    -moz-transform: scale(0.8);
+    -ms-transform: scale(0.8);
+    -o-transform: scale(0.8);
+  }
+}
